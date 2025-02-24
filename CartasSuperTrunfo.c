@@ -3,11 +3,12 @@
 int main() {
     char nome1[50], codigo1[50], nome2[50], codigo2[50];
     int populacao1, pontos1, populacao2, pontos2;
-    float area1, PIB1, area2, PIB2, densidade1, densidade2, percapita1, percapita2;
+    float area1, PIB1, area2, PIB2, densidade1, densidade2, percapita1, percapita2, poder1, invertida1;
+    float poder2, invertida2;
 
     printf("\nCadastro de carta do jogo super trunfo. \n");
     
-    // Leitura dos dados das cartas
+    // Leitura dos dados da 1 carta
     printf("Digite o código da carta: ");
     scanf("%s", codigo1);
 
@@ -30,6 +31,11 @@ int main() {
     densidade1 = populacao1 / area1;
     // calculando PIB per capita
     percapita1 = PIB1 / populacao1;
+
+    // Calculando a densidade invertida 
+    invertida1 = 1 / densidade1; 
+    // Calculando super poder
+    poder1 = PIB1 + area1 + populacao1 + pontos1 + percapita1 + invertida1;
 
     // Exibição dos dados da carta
     printf("Informações da Primeira Carta:\n");
@@ -68,6 +74,11 @@ int main() {
     // calculando PIB per capita
     percapita2 = PIB2 / populacao2;
 
+    // Calculando a densidade invertida 
+    invertida2 = 1 / densidade2; 
+    // Calculando super poder
+    poder2 = PIB2 + area2 + populacao2 + pontos2 + percapita2 + invertida2;
+
     // Exibição dos dados da segunda carta
     printf("Informações da Segunda Carta:\n");
     printf("Código da Carta: %s\n", codigo2);
@@ -78,6 +89,9 @@ int main() {
     printf("PIB: %2.f\n", PIB2);
     printf("Densidade populacional: %f hab/km²\n", densidade2);
     printf("PIB per capita: %f reais\n", percapita2);
+
+    // calculando vencedor
+    poder1 > poder2;
 
     return 0;
 }
